@@ -1,9 +1,8 @@
-package com.saulius.poker_game;
+package com.saulius.pokergame;
 
-import com.saulius.poker_game.enums.CardSuit;
-import com.saulius.poker_game.enums.CardValue;
+import com.saulius.pokergame.enums.CardSuit;
+import com.saulius.pokergame.enums.CardValue;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.AssertionsKt;
 import org.junit.jupiter.api.Test;
 
 public class PokerGameTest {
