@@ -1,14 +1,11 @@
 package com.saulius.pokergame;
 
-import com.saulius.pokergame.Entity.Card;
-import com.saulius.pokergame.Entity.CardDeck;
+import com.saulius.pokergame.entities.Card;
+import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.enums.CardValue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class PokerGameTest {
 
@@ -36,7 +33,7 @@ public class PokerGameTest {
         Card testingCard0 = new Card(5, CardSuit.D);
         Card testingCard1 = new Card(12, CardSuit.S);
 
-        CardDeck cardDeck0 = new CardDeck();
+        CardDeck cardDeck0 = new CardDeck(2);
         cardDeck0.addCard(testingCard0);
         cardDeck0.addCards(testingCard1);
 
@@ -47,7 +44,7 @@ public class PokerGameTest {
         Card testingCard2 = new Card(7, CardSuit.D);
         Card testingCard3 = new Card(6, CardSuit.C);
 
-        CardDeck cardDeck1 = new CardDeck();
+        CardDeck cardDeck1 = new CardDeck(4);
         cardDeck1.addCards(testingCard2);
         cardDeck1.addCards(testingCard3);
         cardDeck1.addCard(testingCard0);
@@ -58,5 +55,9 @@ public class PokerGameTest {
         Assertions.assertEquals(cardDeck1.getDeckOfCards().get(1), testingCard3, "CardDeck has wrong card in it.");
         Assertions.assertEquals(cardDeck1.getDeckOfCards().get(2), testingCard0, "CardDeck has wrong card in it.");
         Assertions.assertEquals(cardDeck1.getDeckOfCards().get(3), testingCard1, "CardDeck has wrong card in it.");
+
+        CardDeck cardDeck2 = new CardDeck(4);
+        cardDeck2.addCards(testingCard0, testingCard1, testingCard2, testingCard3);
+        Assertions.assertEquals(cardDeck2.getDeckOfCards().size(), 4, "CardDeck addCards() method is not working correctly.");
     }
 }

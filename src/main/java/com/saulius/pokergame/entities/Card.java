@@ -1,4 +1,4 @@
-package com.saulius.pokergame.Entity;
+package com.saulius.pokergame.entities;
 
 import com.saulius.pokergame.enums.CardSuit;
 
