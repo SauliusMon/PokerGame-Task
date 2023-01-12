@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textfiles/poker.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Entity/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Entity/CardDeck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/datareading/ReadingPokerTextFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/poker_game/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/poker_game/enums/CardSuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardSuit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/poker_game/enums/CardValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/poker_game/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,7 +56,7 @@
       <recent name="com.saulius.poker_game" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.PokerGameTest (1)">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.saulius.pokergame.Main" />
       <module name="PokerGame.main" />
@@ -70,6 +69,29 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="PokerGameTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.saulius.pokergame.PokerGameTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="PokerGameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -96,6 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PokerGameTest (1)" />
         <item itemvalue="Gradle.PokerGameTest" />
         <item itemvalue="Application.Main" />
       </list>

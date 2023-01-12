@@ -1,24 +1,21 @@
 package com.saulius.pokergame;
 
+import com.saulius.pokergame.Entity.Card;
+import com.saulius.pokergame.datareading.ReadingPokerTextFile;
+import com.saulius.pokergame.enums.CardSuit;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Main {
 
-    public static void main (String[] args) {
-        try {
-            File myObj = new File("src/main/resources/textfiles/poker.txt");
-            Scanner myReader = new Scanner(myObj);
+    protected static final File pokerTextFile = new File("src/main/resources/textfiles/poker.txt");
 
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
-            }
+    public static void main (String[] args)  {
+       ReadingPokerTextFile.readFile(pokerTextFile);
 
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+       Card card = new Card(10, CardSuit.S);
+       System.out.println(card.toString());
+
     }
+
 }
