@@ -10,9 +10,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Entity/CardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/datareading/ReadingPokerTextFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardSuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardSuit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
     </list>
@@ -61,7 +61,7 @@
       <recent name="com.saulius.poker_game" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.PokerGameTest (1)">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.saulius.pokergame.Main" />
       <module name="PokerGame.main" />
@@ -161,5 +161,25 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java</url>
+          <line>19</line>
+          <properties class="com.saulius.pokergame.PokerGameTest" method="testingCardClass">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

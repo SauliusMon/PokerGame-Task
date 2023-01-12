@@ -1,6 +1,5 @@
 package com.saulius.pokergame;
 
-import com.saulius.pokergame.datareading.ReadingPokerTextFile;
 import com.saulius.pokergame.games.PlayPoker;
 
 import java.io.File;

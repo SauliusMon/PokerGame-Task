@@ -10,7 +10,7 @@ public class CardDeck {
     private final int maxDeckSize;
 
     public CardDeck(int maxDeckSize) {
-        this.deckOfCards = new ArrayList<>(5);
+        this.deckOfCards = new ArrayList<>(maxDeckSize);
         this.maxDeckSize = maxDeckSize;
     }
 
@@ -27,11 +27,19 @@ public class CardDeck {
     }
 
     public boolean canAddCard () {
-        return maxDeckSize > deckOfCards.size();
+        return deckOfCards.size() < maxDeckSize;
     }
 
-    public void addCards(Card...cards) {
-        deckOfCards.addAll(Arrays.asList(cards));
+    public boolean addCards(Card...cards) {
+        if (canAddCards(cards.length)) {
+            deckOfCards.addAll(Arrays.asList(cards));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean canAddCards (int cardsLength) {
+        return deckOfCards.size() + cardsLength <= maxDeckSize;
     }
 
     @Override
