@@ -18,6 +18,10 @@ public class CardDeck {
         return deckOfCards;
     }
 
+    public int getMaxDeckSize() {
+        return maxDeckSize;
+    }
+
     public boolean addCard(Card card) {
         if (canAddCard()) {
             deckOfCards.add(card);

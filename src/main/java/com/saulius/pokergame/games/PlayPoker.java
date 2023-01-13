@@ -1,5 +1,6 @@
 package com.saulius.pokergame.games;
 
+import com.saulius.pokergame.comparators.PokerHands;
 import com.saulius.pokergame.entities.Card;
 import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.entities.PlayerCardDeck;
@@ -24,16 +25,19 @@ public class PlayPoker {
                     player points though.
                  */
                 int playerDeckSize = amountOfCardsInRow / 2;
-                PlayerCardDeck playerCardDeck1 = new PlayerCardDeck("Player 1", playerDeckSize);
-                PlayerCardDeck playerCardDeck2 = new PlayerCardDeck("Player 2", playerDeckSize);
+                PlayerCardDeck cardDeckOfPlayer1 = new PlayerCardDeck("Player 1", playerDeckSize);
+                PlayerCardDeck cardDeckOfPlayer2 = new PlayerCardDeck("Player 2", playerDeckSize);
 
                 for (String cardString : individualCards) {
                     Card card = charToCardConverter(cardString.charAt(0), cardString.charAt(1));
-                    if (!playerCardDeck1.addCard(card)) {
-                        playerCardDeck2.addCard(card);
+                    if (!cardDeckOfPlayer1.addCard(card)) {
+                        cardDeckOfPlayer2.addCard(card);
                     }
                 }
+                PokerHands.lookForHandInCardDeck(cardDeckOfPlayer1);
+                PokerHands.lookForHandInCardDeck(cardDeckOfPlayer2);
             }
+
             myReader.close();
         }
         catch (Exception exception) {
