@@ -2,13 +2,13 @@ package com.saulius.pokergame.entities;
 
 import java.util.List;
 
-public class RankedPlayerCardDeck {
+@SuppressWarnings("rawtypes")
+public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Comparable<T>{
 
-    private int deckRanking;
-    private List<CardDeck> rankedCardsList;
-    private List<CardDeck> unrankedCardsList;
-
-    private PlayerCardDeck playerCardDeck;
+    private final int deckRanking;
+    private final List<CardDeck> rankedCardsList;
+    private final List<CardDeck> unrankedCardsList;
+    private final PlayerCardDeck playerCardDeck;
 
     public RankedPlayerCardDeck(int deckRanking, List<CardDeck> rankedCardsList, List<CardDeck> unrankedCardsList, PlayerCardDeck playerCardDeck) {
         this.deckRanking = deckRanking;
@@ -32,4 +32,12 @@ public class RankedPlayerCardDeck {
     public PlayerCardDeck getPlayerCardDeck() {
         return playerCardDeck;
     }
+
+
+    @Override
+    public int compareTo(T cardDeckObject) {
+        return this.getDeckRanking() - cardDeckObject.getDeckRanking();
+    }
+
+
 }

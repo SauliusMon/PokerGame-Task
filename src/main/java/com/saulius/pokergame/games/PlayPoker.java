@@ -1,8 +1,7 @@
 package com.saulius.pokergame.games;
 
-import com.saulius.pokergame.comparators.PokerHands;
+import com.saulius.pokergame.hands.PokerHands;
 import com.saulius.pokergame.entities.Card;
-import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.entities.PlayerCardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.enums.CardValue;
@@ -34,10 +33,8 @@ public class PlayPoker {
                         cardDeckOfPlayer2.addCard(card);
                     }
                 }
-                System.out.println(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer1));
-                System.out.println(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer2));
+                System.out.println(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer1).compareTo(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer2)));
             }
-
             myReader.close();
         }
         catch (Exception exception) {
