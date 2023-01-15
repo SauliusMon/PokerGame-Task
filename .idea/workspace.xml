@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/comparators/DeckComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/comparators/PokerHands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/datareading/ReadingPokerTextFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardSuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardSuit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/comparators/PokerHands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/comparators/PokerHands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/textfiles/poker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textfiles/poker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

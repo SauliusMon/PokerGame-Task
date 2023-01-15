@@ -1,8 +1,11 @@
 package com.saulius.pokergame;
 
+import com.saulius.pokergame.entities.Card;
+import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.games.PlayPoker;
 
 import java.io.File;
+import java.util.HashMap;
 
 public class Main {
 
@@ -11,7 +14,6 @@ public class Main {
 
     public static void main (String[] args)  {
        new PlayPoker().playPokerFromTextFile(pokerTextFile, 10);
-
     }
 
 }

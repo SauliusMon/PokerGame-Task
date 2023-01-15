@@ -34,8 +34,8 @@ public class PlayPoker {
                         cardDeckOfPlayer2.addCard(card);
                     }
                 }
-                PokerHands.lookForHandInCardDeck(cardDeckOfPlayer1);
-                PokerHands.lookForHandInCardDeck(cardDeckOfPlayer2);
+                System.out.println(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer1));
+                System.out.println(PokerHands.lookForHandInCardDeck(cardDeckOfPlayer2));
             }
 
             myReader.close();
