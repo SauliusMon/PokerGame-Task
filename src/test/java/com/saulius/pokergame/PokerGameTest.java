@@ -3,10 +3,15 @@ package com.saulius.pokergame;
 import com.saulius.pokergame.entities.Card;
 import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.entities.PlayerCardDeck;
+import com.saulius.pokergame.entities.RankedPlayerCardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.enums.CardValue;
+import com.saulius.pokergame.games.PlayPoker;
+import com.saulius.pokergame.hands.PokerHands;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 public class PokerGameTest {
 
@@ -82,5 +87,20 @@ public class PokerGameTest {
         playerCardDeck.addCards(testingCard2);
         Assertions.assertEquals(2, playerCardDeck.getDeckOfCards().size(), "PlayerCardDeck shouldn't add card if it reached maximum size.");
         Assertions.assertEquals("Player Deck", playerCardDeck.getPlayerName(),"PlayerCardDeck names don't match.");
+    }
+
+
+    private final String royalFlushToCompare = "TH JH QH KH AH AD JD TD KD QD";
+    private final String straightFlushToCompare = "8C QC JC 9C TC 3S 5S 2S 4S 6S";
+
+
+    @Test
+    public void testingPokerHandsComparator() {
+        List<PlayerCardDeck> playerCardDecks = new PlayPoker().stringToCardDecks(royalFlushToCompare, 5);
+        RankedPlayerCardDeck firstPlayerRankedDeck = PokerHands.lookForHandInCardDeck(playerCardDecks.get(0));
+        RankedPlayerCardDeck secondPlayerRankedDeck = PokerHands.lookForHandInCardDeck(playerCardDecks.get(0));
+        Assertions.assertEquals(0, firstPlayerRankedDeck.compareTo(secondPlayerRankedDeck));
+
+
     }
 }

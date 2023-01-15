@@ -37,24 +37,20 @@ public class PokerHands {
         If they are, they are put into HashMap, or the amount of appearance times in CardDeck increases by one.
         */
         for (int i = 0; i < cardsList.size() - 1; i++) {
-                Card card = cardsList.get(i);
-            if (card.getCardValue() == cardsList.get(i + 1).getCardValue()) {
-                int valueOfPair = card.getCardValue();
+            Card firstCard = cardsList.get(i);
+            Card secondCard = cardsList.get(i + 1);
+            if (firstCard.getCardValue() == secondCard.getCardValue()) {
+                int valueOfPair = firstCard.getCardValue();
                 if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
                     cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
-                }
-                else {
-                    cardValueWithAmountOfAppearances.put(card.getCardValue(), 2);
+                } else {
+                    cardValueWithAmountOfAppearances.put(firstCard.getCardValue(), 2);
                 }
             }
 
-            if (cardSuit != card.getCardSuit()) {
+            if (cardSuit != secondCard.getCardSuit()) {
                 areCardsOfTheSameSuit = false;
             }
-        }
-
-        if (areCardsOfTheSameSuit) {
-            areCardsOfTheSameSuit = cardSuit == cardsList.get(cardsList.size() - 1).getCardSuit();
         }
         
         /*
@@ -134,6 +130,5 @@ public class PokerHands {
         Returns 1 if it's a High Card
         */
         return new RankedPlayerCardDeck(1, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
-
     }
 }
