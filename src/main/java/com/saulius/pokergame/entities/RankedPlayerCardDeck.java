@@ -7,11 +7,11 @@ import java.util.TreeSet;
 public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Comparable<T>{
 
     private final int deckRanking;
-    private final TreeSet<CardDeck> rankedCardsList;
-    private final TreeSet<CardDeck> unrankedCardsList;
+    private final TreeSet<Card> rankedCardsList;
+    private final TreeSet<Card> unrankedCardsList;
     private final PlayerCardDeck playerCardDeck;
 
-    public RankedPlayerCardDeck(int deckRanking, TreeSet<CardDeck> rankedCardsList, TreeSet<CardDeck> unrankedCardsList, PlayerCardDeck playerCardDeck) {
+    public RankedPlayerCardDeck(int deckRanking, TreeSet<Card> rankedCardsList, TreeSet<Card> unrankedCardsList, PlayerCardDeck playerCardDeck) {
         this.deckRanking = deckRanking;
         this.rankedCardsList = rankedCardsList;
         this.unrankedCardsList = unrankedCardsList;
@@ -22,11 +22,11 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
         return deckRanking;
     }
 
-    public TreeSet<CardDeck> getRankedCardsList() {
+    public TreeSet<Card> getRankedCardsList() {
         return rankedCardsList;
     }
 
-    public TreeSet<CardDeck> getUnrankedCardsList() {
+    public TreeSet<Card> getUnrankedCardsList() {
         return unrankedCardsList;
     }
 
