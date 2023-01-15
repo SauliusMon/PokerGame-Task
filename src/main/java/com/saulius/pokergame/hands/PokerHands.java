@@ -14,16 +14,7 @@ public class PokerHands {
         boolean areCardsOfTheSameSuit = true;
         boolean areCardsOfConsecutiveValues;
 
-        List<Card> cardsList = playerCardDeck.getDeckOfCards();
-
-        //Sorts cards by ascending values
-        cardsList.sort(Comparator.comparingInt(Card::getCardValue));
-
-        /*
-        Checks whether all cards are of the same suit
-        */
-        CardSuit cardSuit = cardsList.get(0).getCardSuit();
-        HashMap<Integer, Integer> cardValueWithAmountOfAppearances = new HashMap<>();
+        TreeSet<Card> cardsTreeSet = playerCardDeck.getDeckOfCards();
 
         /*
         Finds every single pair, three of a kind, four of a kind and whether cards are of the same suit.
@@ -36,42 +27,59 @@ public class PokerHands {
         Loop iterates until second to last member, and checks whether first and second values are even.
         If they are, they are put into HashMap, or the amount of appearance times in CardDeck increases by one.
         */
-        for (int i = 0; i < cardsList.size() - 1; i++) {
-            Card firstCard = cardsList.get(i);
-            Card secondCard = cardsList.get(i + 1);
-            if (firstCard.getCardValue() == secondCard.getCardValue()) {
-                int valueOfPair = firstCard.getCardValue();
-                if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
-                    cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
-                } else {
-                    cardValueWithAmountOfAppearances.put(firstCard.getCardValue(), 2);
-                }
-            }
+        HashMap<Integer, Integer> cardValueWithAmountOfAppearances = new HashMap<>();
 
-            if (cardSuit != secondCard.getCardSuit()) {
-                areCardsOfTheSameSuit = false;
+        Card previousCard = cardsTreeSet.first();
+        CardSuit cardSuit = previousCard.getCardSuit();
+
+        for (Card treeSetCard : cardsTreeSet) {
+            if (!treeSetCard.equals(previousCard)) {
+                if (treeSetCard.getCardValue() == previousCard.getCardValue()) {
+                    int valueOfPair = treeSetCard.getCardValue();
+                    if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
+                        cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
+                    } else {
+                        cardValueWithAmountOfAppearances.put(treeSetCard.getCardValue(), 2);
+                    }
+                }
+                if (cardSuit != treeSetCard.getCardSuit()) {
+                    areCardsOfTheSameSuit = false;
+                }
+                previousCard = treeSetCard;
             }
         }
+//
+//        for (int i = 0; i < cardsTreeSet.size() - 1; i++) {
+//            Card secondCard = cardsTreeSet.get(i + 1);
+//            if (firstCard.getCardValue() == secondCard.getCardValue()) {
+//                int valueOfPair = firstCard.getCardValue();
+//                if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
+//                    cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
+//                } else {
+//                    cardValueWithAmountOfAppearances.put(firstCard.getCardValue(), 2);
+//                }
+//            }
+//        }
         
         /*
         Checks if it's a Royal Flush
         */
-        int smallestCardValue = cardsList.get(0).getCardValue();
-        int highestCardValue = cardsList.get(cardsList.size() - 1).getCardValue();
+        int smallestCardValue = cardsTreeSet.first().getCardValue();
+        int highestCardValue = cardsTreeSet.last().getCardValue();
         if (smallestCardValue == 10 && highestCardValue == 14 && areCardsOfTheSameSuit) {
-            return new RankedPlayerCardDeck(10, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(10, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
         }
 
         /*
         Checks whether all cards have consecutive values
         */
-        areCardsOfConsecutiveValues = smallestCardValue + cardsList.size() - 1 == highestCardValue;
+        areCardsOfConsecutiveValues = smallestCardValue + cardsTreeSet.size() - 1 == highestCardValue;
 
         /*
         Checks if it's a Straight Flush
         */
         if (areCardsOfTheSameSuit && areCardsOfConsecutiveValues) {
-            return new RankedPlayerCardDeck(9, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(9, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
         }
         /*
         Checks if it's a Four of a Kind
@@ -79,8 +87,7 @@ public class PokerHands {
          */
 
         if (cardValueWithAmountOfAppearances.containsValue(4)) {
-            return new RankedPlayerCardDeck(8, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
-
+            return new RankedPlayerCardDeck(8, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
         }
 
         /*
@@ -89,46 +96,46 @@ public class PokerHands {
         In a case its only 2 reappearing values, it's Two pairs.
          */
         if (cardValueWithAmountOfAppearances.size() == 2 && cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerCardDeck(7, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(7, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
 
         }
         /*
         Checks if it's a Flush
         */
         if (areCardsOfTheSameSuit) {
-            return new RankedPlayerCardDeck(6, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(6, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
 
         }
         /*
         Checks if it's a Straight
         */
         if (areCardsOfConsecutiveValues) {
-            return new RankedPlayerCardDeck(5, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(5, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
 
         }
         /*
         Checks if it's a Three of a Kind
         */
         if (cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerCardDeck(4, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(4, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
 
         }
         /*
         Checks if it's Two Pairs
         */
         if (cardValueWithAmountOfAppearances.size() == 2) {
-            return new RankedPlayerCardDeck(3, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(3, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
         }
         /*
         Checks if it's One Pair
         */
         if (cardValueWithAmountOfAppearances.size() != 0) {
-            return new RankedPlayerCardDeck(2, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+            return new RankedPlayerCardDeck(2, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
 
         }
         /*
         Returns 1 if it's a High Card
         */
-        return new RankedPlayerCardDeck(1, new ArrayList<>(), new ArrayList<>(), playerCardDeck);
+        return new RankedPlayerCardDeck(1, new TreeSet<>(), new TreeSet<>(), playerCardDeck);
     }
 }

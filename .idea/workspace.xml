@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
     </list>
@@ -155,5 +157,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="playerCardDeck" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

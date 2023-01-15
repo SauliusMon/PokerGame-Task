@@ -1,20 +1,18 @@
 package com.saulius.pokergame.entities;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CardDeck {
 
-    private final List<Card> deckOfCards;
+    private final TreeSet<Card> deckOfCards;
     private final int maxDeckSize;
 
     public CardDeck(int maxDeckSize) {
-        this.deckOfCards = new ArrayList<>(maxDeckSize);
+        this.deckOfCards = new TreeSet<Card>();
         this.maxDeckSize = maxDeckSize;
     }
 
-    public List<Card> getDeckOfCards() {
+    public TreeSet<Card> getDeckOfCards() {
         return deckOfCards;
     }
 

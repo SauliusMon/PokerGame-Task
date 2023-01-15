@@ -1,16 +1,17 @@
 package com.saulius.pokergame.entities;
 
 import java.util.List;
+import java.util.TreeSet;
 
 @SuppressWarnings("rawtypes")
 public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Comparable<T>{
 
     private final int deckRanking;
-    private final List<CardDeck> rankedCardsList;
-    private final List<CardDeck> unrankedCardsList;
+    private final TreeSet<CardDeck> rankedCardsList;
+    private final TreeSet<CardDeck> unrankedCardsList;
     private final PlayerCardDeck playerCardDeck;
 
-    public RankedPlayerCardDeck(int deckRanking, List<CardDeck> rankedCardsList, List<CardDeck> unrankedCardsList, PlayerCardDeck playerCardDeck) {
+    public RankedPlayerCardDeck(int deckRanking, TreeSet<CardDeck> rankedCardsList, TreeSet<CardDeck> unrankedCardsList, PlayerCardDeck playerCardDeck) {
         this.deckRanking = deckRanking;
         this.rankedCardsList = rankedCardsList;
         this.unrankedCardsList = unrankedCardsList;
@@ -21,11 +22,11 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
         return deckRanking;
     }
 
-    public List<CardDeck> getRankedCardsList() {
+    public TreeSet<CardDeck> getRankedCardsList() {
         return rankedCardsList;
     }
 
-    public List<CardDeck> getUnrankedCardsList() {
+    public TreeSet<CardDeck> getUnrankedCardsList() {
         return unrankedCardsList;
     }
 
@@ -38,6 +39,4 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
     public int compareTo(T cardDeckObject) {
         return this.getDeckRanking() - cardDeckObject.getDeckRanking();
     }
-
-
 }
