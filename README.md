@@ -1,6 +1,6 @@
 # PokerGame-Task
 
-How it works:
+## How it works:
 
 After initial start, this program begins reading poker.txt file (location is declared in main class) with a scanner and while loop. At every line read, string is split into String[] array, which in this game consists of 10 ellements with 2 symbols (5 cards for 2 players). Those 10 ellements are converted into Cards, which are later put into separate PlayerCardDecks. In this case, PlayerCardDecks consist of 5 cards each and have a player name, while cards hold value of the card (Integer) and a card suit (custom made Enum). After making PlayerCardDecks (in this game - 2 separate Deck objects), they are passed into hand rating method, which returns RankedPlayerHand object. This object is used to get a hand ranking integer (hand combination - e.g. Full House is equal to 7) and to compare hands in a case, where both hands have an equal previously mentioned combination (hand) rank. After comparing those hands, the winnner is determined. Even though in a task description it is written, that every case has a clear winner and I only need to show how many games "Player 1" won, I decided to implement functionality for a tie (for example, both hands have Royal Flush) and calculate score for both Players. I came to a conclusion, that ,,Player 1" won 376 times, while ,,Player 2" won 624 times. Those points are being caclulated every line read from file and are stored as a global static private primitive ints in a class.
 
