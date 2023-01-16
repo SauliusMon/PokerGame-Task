@@ -2,14 +2,20 @@ package com.saulius.pokergame.entities;
 
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 import java.util.TreeSet;
+
+/*
+This class is used to compare 2 different player hands.
+*/
 
 @SuppressWarnings("rawtypes")
 public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Comparable<T>{
 
+    //Deck ranking - is a hand power ranking from 1 to 10
     private final int deckRanking;
+    //Ranked cards - are cards which were ranked while assigning deck ranking value
     private final TreeSet<Card> rankedCardsList;
+    //Unranked cards - are cards which weren't used in hand power ranking and didn't affect deck ranking
     private final TreeSet<Card> unrankedCardsList;
 
     public RankedPlayerCardDeck(int deckRanking, TreeSet<Card> rankedCardsList, TreeSet<Card> unrankedCardsList) {
@@ -42,6 +48,7 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
         if (this.getDeckRanking() == 10) {
                 return handRanking;
         }
+        //Starts comparing ranked and unranked Deck sets by value - this happens only when both players have similar hands
         return this.compareCardSets(cardDeckObject);
     }
 
@@ -74,7 +81,7 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
 
     /*
     This is needed because Cards are being compared by both value and suit.
-    In a case suit matters in CardDeck ranking, it could be deleted and card compare method could be used.
+    In a case where suit does matter in a CardDeck ranking, it could be deleted and card compare method could be used.
     */
     private final Comparator<Card> comparable = new Comparator<Card>() {
         @Override

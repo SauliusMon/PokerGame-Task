@@ -27,7 +27,8 @@ public class Card implements Comparable<Card>{
 
     /*
     Sorts set by card value. If values are the same, checks whether suits differ (cards should be always unique per deck)
-    If suits would matter for the game, instead of ordinal(), getValue() could be used
+    If suits would matter for the game, instead of ordinal(), getValue() could be used.
+    Here suits are only used so TreeSet would accept cards of the same value and different suits.
     */
     @Override
     public int compareTo(Card card) {

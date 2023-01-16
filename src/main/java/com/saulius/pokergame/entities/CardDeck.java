@@ -8,7 +8,7 @@ public class CardDeck {
     private final int maxDeckSize;
 
     public CardDeck(int maxDeckSize) {
-        this.deckOfCards = new TreeSet<Card>();
+        this.deckOfCards = new TreeSet<>();
         this.maxDeckSize = maxDeckSize;
     }
 
@@ -16,22 +16,21 @@ public class CardDeck {
         return deckOfCards;
     }
 
-    public int getMaxDeckSize() {
-        return maxDeckSize;
-    }
-
-    public boolean addCard(Card card) {
+    /*
+    In this task checking whether it's possible to addCard is redundant (because it's checked when adding cards),
+    so it's here only for sanity check and good code practice.
+    */
+    public void addCard(Card card) {
         if (canAddCard()) {
             deckOfCards.add(card);
-            return true;
         }
-        return false;
     }
 
     public boolean canAddCard () {
         return deckOfCards.size() < maxDeckSize;
     }
 
+    //This is only used in tests
     public boolean addCards(Card...cards) {
         if (canAddCards(cards.length)) {
             deckOfCards.addAll(Arrays.asList(cards));
