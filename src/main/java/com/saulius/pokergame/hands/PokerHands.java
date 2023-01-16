@@ -2,7 +2,6 @@ package com.saulius.pokergame.hands;
 
 import com.saulius.pokergame.entities.Card;
 import com.saulius.pokergame.entities.PlayerCardDeck;
-import com.saulius.pokergame.entities.RankedPlayerCardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 
 import java.util.*;
@@ -10,7 +9,7 @@ import java.util.*;
 public class PokerHands {
 
     @SuppressWarnings("rawtypes")
-    public static RankedPlayerCardDeck lookForHandInCardDeck (PlayerCardDeck playerCardDeck) {
+    public static RankedPlayerHand lookForHandInCardDeck (PlayerCardDeck playerCardDeck) {
         boolean areCardsOfTheSameSuit = true;
         boolean areCardsOfConsecutiveValues = false;
 
@@ -70,7 +69,7 @@ public class PokerHands {
         int smallestCardValue = cardsTreeSet.first().getCardValue();
         int highestCardValue = cardsTreeSet.last().getCardValue();
         if (smallestCardValue == 10 && highestCardValue == 14 && areCardsOfTheSameSuit) {
-            return new RankedPlayerCardDeck(10, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand<>(10, playerCardDeck.getDeckOfCards(), new TreeSet<>());
         }
 
         /*
@@ -84,7 +83,7 @@ public class PokerHands {
         Checks if it's a Straight Flush
         */
         if (areCardsOfTheSameSuit && areCardsOfConsecutiveValues) {
-            return new RankedPlayerCardDeck(9, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand<>(9, playerCardDeck.getDeckOfCards(), new TreeSet<>());
         }
 
         /*
@@ -95,7 +94,7 @@ public class PokerHands {
         so comparing should never start with unrankedCard set.
          */
         if (cardValueWithAmountOfAppearances.containsValue(4)) {
-            return new RankedPlayerCardDeck(8, rankedCards, new TreeSet<>());
+            return new RankedPlayerHand<>(8, rankedCards, new TreeSet<>());
         }
 
         /*
@@ -104,21 +103,21 @@ public class PokerHands {
         In a case its only 2 reappearing values with a size of 2, it's Two pairs.
          */
         if (cardValueWithAmountOfAppearances.size() == 2 && cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerCardDeck(7, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand<>(7, playerCardDeck.getDeckOfCards(), new TreeSet<>());
 
         }
         /*
         Checks if it's a Flush
         */
         if (areCardsOfTheSameSuit) {
-            return new RankedPlayerCardDeck(6, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand<>(6, playerCardDeck.getDeckOfCards(), new TreeSet<>());
 
         }
         /*
         Checks if it's a Straight
         */
         if (areCardsOfConsecutiveValues) {
-            return new RankedPlayerCardDeck(5, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand<>(5, playerCardDeck.getDeckOfCards(), new TreeSet<>());
 
         }
         /*
@@ -127,26 +126,26 @@ public class PokerHands {
         so comparator should never start comparing unrankedCards set.
         */
         if (cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerCardDeck(4, rankedCards, new TreeSet<>());
+            return new RankedPlayerHand<>(4, rankedCards, new TreeSet<>());
 
         }
         /*
         Checks if it's Two Pairs
         */
         if (cardValueWithAmountOfAppearances.size() == 2) {
-            return new RankedPlayerCardDeck(3, rankedCards, unrankedCards);
+            return new RankedPlayerHand<>(3, rankedCards, unrankedCards);
         }
         /*
         Checks if it's One Pair
         */
         if (cardValueWithAmountOfAppearances.size() != 0) {
-            return new RankedPlayerCardDeck(2, rankedCards, unrankedCards);
+            return new RankedPlayerHand<>(2, rankedCards, unrankedCards);
 
         }
         /*
         Returns 1 if it's a High Card
         If it's a High Card, it means all Cards are unranked.
         */
-        return new RankedPlayerCardDeck(1, new TreeSet<>(), playerCardDeck.getDeckOfCards());
+        return new RankedPlayerHand<>(1, new TreeSet<>(), playerCardDeck.getDeckOfCards());
     }
 }

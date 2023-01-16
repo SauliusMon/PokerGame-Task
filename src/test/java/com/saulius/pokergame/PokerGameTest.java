@@ -3,7 +3,6 @@ package com.saulius.pokergame;
 import com.saulius.pokergame.entities.Card;
 import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.entities.PlayerCardDeck;
-import com.saulius.pokergame.entities.RankedPlayerCardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.enums.CardValue;
 import com.saulius.pokergame.games.PlayPoker;

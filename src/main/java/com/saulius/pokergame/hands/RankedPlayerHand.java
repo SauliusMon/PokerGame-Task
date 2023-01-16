@@ -1,4 +1,6 @@
-package com.saulius.pokergame.entities;
+package com.saulius.pokergame.hands;
+
+import com.saulius.pokergame.entities.Card;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -9,7 +11,7 @@ This class is used to compare 2 different player hands.
 */
 
 @SuppressWarnings("rawtypes")
-public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Comparable<T>{
+public class RankedPlayerHand<T extends RankedPlayerHand> implements Comparable<T>{
 
     //Deck ranking - is a hand power ranking from 1 to 10
     private final int deckRanking;
@@ -18,7 +20,7 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
     //Unranked cards - are cards which weren't used in hand power ranking and didn't affect deck ranking
     private final TreeSet<Card> unrankedCardsList;
 
-    public RankedPlayerCardDeck(int deckRanking, TreeSet<Card> rankedCardsList, TreeSet<Card> unrankedCardsList) {
+    public RankedPlayerHand(int deckRanking, TreeSet<Card> rankedCardsList, TreeSet<Card> unrankedCardsList) {
         this.deckRanking = deckRanking;
         this.rankedCardsList = rankedCardsList;
         this.unrankedCardsList = unrankedCardsList;
