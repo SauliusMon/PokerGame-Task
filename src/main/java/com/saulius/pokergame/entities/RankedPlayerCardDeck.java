@@ -42,7 +42,7 @@ public class RankedPlayerCardDeck <T extends RankedPlayerCardDeck> implements Co
 
         //If the hands aren't of the same ranking, it returns integer
         if (handRanking != 0) {
-            return handRanking > 1 ? 1 : -1;
+            return handRanking > 0 ? 1 : -1;
         }
         //This is done because comparing RoyalFlush always results in a tie, so there is no point to compare card values
         if (this.getDeckRanking() == 10) {

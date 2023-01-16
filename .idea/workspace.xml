@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit">
+    <list default="true" id="6291fec2-1a2b-4fec-a169-66b69aff74f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/CardDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/enums/CardValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/textfiles/poker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textfiles/poker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/saulius/pokergame/PokerGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,42 +24,24 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KDuzPNzaTqBLOdKGcaZnzSZAoa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2KOlKjMN2arvysxaJPt4YBuDv83" />
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/IT/Documents/GitHub/Poker Game Task/PokerGame/build.gradle&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.saulius.poker_game" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
+}]]></component>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.saulius.pokergame.Main" />
       <module name="PokerGame.main" />
@@ -75,56 +55,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PokerGameTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.saulius.pokergame.PokerGameTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PokerGameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.saulius.poker_game.PokerGameTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PokerGameTest (1)" />
-        <item itemvalue="Gradle.PokerGameTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -132,19 +64,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="" />
-      <created>1673521737814</created>
+      <changelist id="6291fec2-1a2b-4fec-a169-66b69aff74f0" name="Changes" comment="" />
+      <created>1673853454767</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673521737814</updated>
+      <updated>1673853454767</updated>
     </task>
-    <task id="LOCAL−00001" summary="Init commit">
-      <created>1673522456478</created>
-      <option name="number" value="LOCAL−00001" />
-      <option name="presentableId" value="LOCAL−00001" />
-      <updated>1673522456478</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,16 +83,15 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit" />
-  </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="GradleRunConfiguration">
-        <watch expression="playerCardDeck" />
-        <watch expression="playerCardDeck.deckOfCards.toArray()[1]" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/RankedPlayerCardDeck.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

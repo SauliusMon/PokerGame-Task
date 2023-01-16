@@ -12,7 +12,7 @@ public class PokerHands {
     @SuppressWarnings("rawtypes")
     public static RankedPlayerCardDeck lookForHandInCardDeck (PlayerCardDeck playerCardDeck) {
         boolean areCardsOfTheSameSuit = true;
-        boolean areCardsOfConsecutiveValues;
+        boolean areCardsOfConsecutiveValues = false;
 
         TreeSet<Card> cardsTreeSet = playerCardDeck.getDeckOfCards();
         TreeSet<Card> rankedCards = new TreeSet<>();
@@ -76,7 +76,9 @@ public class PokerHands {
         /*
         Checks whether all cards have consecutive values
         */
-        areCardsOfConsecutiveValues = smallestCardValue + cardsTreeSet.size() - 1 == highestCardValue;
+        if (rankedCards.size() == 0) {
+            areCardsOfConsecutiveValues = smallestCardValue + cardsTreeSet.size() - 1 == highestCardValue;
+        }
 
         /*
         Checks if it's a Straight Flush
