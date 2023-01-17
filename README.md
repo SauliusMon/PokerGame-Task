@@ -18,7 +18,7 @@ Other java objects that were used are pretty self explanitory aswell - it would 
   
 ## What I like and dislike about my solution:
 
-I think my solution could be easier to read and more efficient in terms of performance. I tried using HashMap and TreeSet collections for performance boost and iterate through them only when necessary, but there might be a more efficient solution to check hands ranking, compare them and convert a String from the text file to an object of Card.
+I think my solution could be easier to read and more efficient in terms of performance. I tried using HashMap and TreeSet collections for a performance boost and iterate through them only when necessary, but there might be a more efficient solution to check hands ranking, compare them and convert a String from the text file to an object of Card.
 I liked that my code was pretty ,,flexible'', even though task didn't require it. In a case where text file had 15 cards and 3 players, or 6 cards for 2 players, it should be pretty easy to change the code so it would work even in those circumstances.
 
   
