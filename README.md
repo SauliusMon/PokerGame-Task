@@ -7,7 +7,7 @@ Program begins by reading poker.txt file (location is declared in main class) wi
 
 ## Object-oriented programming ideas used in this task:
 
-* _CardValue_ enum: 
+* __CardValue__ enum: 
 Used to convert card enum to an integer value (for example, T would be 10, J would be 11 and etc...). 
 * CardSuit enum: 
 Used to hold a card suits, which are: H, D, C, S.
