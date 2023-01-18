@@ -7,8 +7,11 @@ Program begins by reading poker.txt file (location is declared in main class) wi
 
 ## Object-oriented programming ideas used in this task:
 
-As i meantioned before, I used a couple of different java objects. For starters, 2 enum classes were used to hold and convert Char values to enums.
-One of those was CardValue enum - which was used to convert card enum to an integer value (for example, T would be 10, J would be 11 and etc...). On the other hand, CardSuit enum doesn't have such functionality - its only used to hold a card suits, which are: H, D, C, S.
+** CardValue enum: 
+Used to convert card enum to an integer value (for example, T would be 10, J would be 11 and etc...). 
+* CardSuit enum: 
+Used to hold a card suits, which are: H, D, C, S.
+
 Other java objects that were used are pretty self explanitory aswell - it would be Card, CardDeck, PlayerDeck and RankedPlayerHand. 
 * Card would hold a final int of card value and an final enum of card suit. These values would be assigned by instantiating Card object and passing aforementioned values. Card object also has getters, toString methods, and an custom comparator. While getters and toString methods are pretty self-explanatory, comparator should get a brief explanation: firstly, it compares card values and secondly, if card values match, it compares card suit.ordinal() integers. This comparator is used in an CardDeck object, which holds a TreeSet<Card> collection. Because of the comparator, Cards are sorted in aforestated collection by ascending value, while sorting with suit.ordinal() prevents TreeSet from denying new members entry, which hold a card value which is already present in a set (in this case TreeSet would think that the Card which is being added is equal to the Card already in the Set).
 * CardDeck main purpose is to hold a Set of unique cards. The maximum size of CardDeck is made by passing integer to constructor. This is used to check whether CardDeck is full or not. In this particular poker game, maximum side could always be set to 5, though it diminishes code ,,flexibility''. It also has a getter, toString, canAddCards, addCard and addCards methods. AddCard method adds one card to the CardDeck (if it doesn't exceed maximum size), AddCards does the same thing just with multiple cards (var args was used here). CanAddCards method is used to determine whether amount of cards program is trying to add doesn't exceed maximum size or to get a boolean which shows whether CardDeck size is already at a maximum capacity.
