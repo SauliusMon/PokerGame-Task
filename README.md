@@ -2,7 +2,7 @@
 
 ## How it works:
 
-Program begins by reading poker.txt file (location is declared in main class) with a scanner and while loop. At every line read, string is split into String[] array, which in this game consists of 10 ellements with 2 symbols each (10 cards for 2 players). Those 10 ellements are converted into Cards, which are put into separate PlayerCardDecks. Later on PlayerCardDecks are passed into hand rating method, which returns RankedPlayerHand object. This object is used to get a winning hand by comparing 2 different PlayerCardDecks. After comparing those hands, the winnner is determined. Even though task doesn't require it, I decided to make code easily adjustible for more than 2 players and caculate score of them separately.
+Program begins by reading poker.txt file (location is declared in main class) with a scanner and while loop. At every line read, string is split into String[] array, which in this game consists of 10 elements with 2 symbols each (10 cards for 2 players). Those 10 ellements are converted into Cards, which are put into separate PlayerCardDecks. Later on PlayerCardDecks are passed into hand rating method, which returns RankedPlayerHand object. This object is used to get a winning a hand by comparing 2 different PlayerCardDecks. After comparing those hands, the winnner is determined. Even though task doesn't require it, I decided to make code easily adjustible for more than 2 players and caculate score of them separately.
 
 
 ## Object-oriented programming ideas used in this task:
@@ -20,7 +20,7 @@ Custom made comparator: it compares card values, and, if card values match, it c
 * __PlayerCardDeck:__ 
   Child of the CardDeck class, and as a addition, it can also hold a name of the Player.
 * __RankedPlayerHand:__ 
-* Used to determine winning hand. It holds a power ranking integer (deckRanking), ranked cards TreeSet (cards which were used to determine hand ranking) and unranked cards TreeSet (cards which were redundant to hand rank). Compare method in this class checks, whether hands being compared hold the same power ranking integer, and, if they don't, comparator returns the winner (1 or -1). If they do and they both have a RoyalFlush, comparator returns 0. In other cases, comparator starts comparing TreeSet of Ranked Cards and TreeSet of Unranked Cards to find a high card and determine a winner. if nn a very rare case hands are still even, comparator returns 0.
+Used to determine winning hand. It holds a power ranking integer (deckRanking), ranked cards TreeSet (cards which were used to determine hand ranking) and unranked cards TreeSet (cards which were redundant to hand rank). Compare method in this class checks, whether hands being compared hold the same power ranking integer, and, if they don't, comparator returns the winner (1 or -1). If they do and they both have a RoyalFlush, comparator returns 0. In other cases, comparator starts comparing TreeSet of Ranked Cards and TreeSet of Unranked Cards to find a high card and determine a winner. if nn a very rare case hands are still even, comparator returns 0.
 
   
 ## What I like and dislike about my solution:
