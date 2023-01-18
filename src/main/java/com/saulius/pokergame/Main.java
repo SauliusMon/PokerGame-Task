@@ -3,8 +3,6 @@ package com.saulius.pokergame;
 import com.saulius.pokergame.games.PlayPoker;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Main {
 

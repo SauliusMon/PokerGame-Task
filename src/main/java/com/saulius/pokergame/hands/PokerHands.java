@@ -8,12 +8,11 @@ import java.util.*;
 
 public class PokerHands {
 
-    @SuppressWarnings("rawtypes")
     public static RankedPlayerHand lookForHandInCardDeck (PlayerCardDeck playerCardDeck) {
         boolean areCardsOfTheSameSuit = true;
         boolean areCardsOfConsecutiveValues = false;
 
-        TreeSet<Card> cardsTreeSet = playerCardDeck.getDeckOfCards();
+        TreeSet<Card> playerCardDeckTreeSet = playerCardDeck.getDeckOfCards();
         TreeSet<Card> rankedCards = new TreeSet<>();
         TreeSet<Card> unrankedCards = new TreeSet<>();
 
@@ -32,32 +31,43 @@ public class PokerHands {
         /*
         Gets first card before loop starts and skips first iteration of that loop
          */
-        Card previousCard = cardsTreeSet.first();
+        Iterator<Card> playerCardDeckIterator = playerCardDeckTreeSet.iterator();
+        //Skipping first iteration
+        Card previousCard = playerCardDeckIterator.next();
         CardSuit cardSuit = previousCard.getCardSuit();
 
-        for (Card treeSetCard : cardsTreeSet) {
-            //Skipping first iteration
-            if (!treeSetCard.equals(previousCard)) {
-                if (treeSetCard.getCardValue() == previousCard.getCardValue()) {
-                    int valueOfPair = treeSetCard.getCardValue();
-                    if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
-                        cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
-                    } else {
-                        cardValueWithAmountOfAppearances.put(treeSetCard.getCardValue(), 2);
-                    }
-                    //Because it appears more than once, adding it to ranked cards set
-                    rankedCards.add(treeSetCard);
+        //This is needed so that the first card (previousCard) would be added into ranked or unranked cards TreeSet
+        boolean isFirstIteration = true;
+
+        while (playerCardDeckIterator.hasNext()) {
+            Card currentCard = playerCardDeckIterator.next();
+            if (currentCard.getCardValue() == previousCard.getCardValue()) {
+                int valueOfPair = currentCard.getCardValue();
+                if (cardValueWithAmountOfAppearances.containsKey(valueOfPair)) {
+                    cardValueWithAmountOfAppearances.replace(valueOfPair, cardValueWithAmountOfAppearances.get(valueOfPair) + 1);
+                } else {
+                    cardValueWithAmountOfAppearances.put(valueOfPair, 2);
                 }
-                else {
-                    //If it doesn't reappear, it means it's unranked or all cards are ranked (Flush, Straight)
-                    unrankedCards.add(treeSetCard);
+                //Because it appears more than once, adding it to ranked cards set
+                if (isFirstIteration) {
+                    rankedCards.add(previousCard);
+                    isFirstIteration = false;
                 }
-                //Checking if hand has same suits. If it's not even once, it means suits differ
-                if (cardSuit != treeSetCard.getCardSuit()) {
-                    areCardsOfTheSameSuit = false;
-                }
-                previousCard = treeSetCard;
+                rankedCards.add(currentCard);
             }
+            else {
+                //If it doesn't reappear, it means it's unranked or all cards are ranked (Flush, Straight)
+                if (isFirstIteration) {
+                    unrankedCards.add(previousCard);
+                    isFirstIteration = false;
+                }
+                unrankedCards.add(currentCard);
+            }
+            //Checking if hand has the same suits. If cardSuits are not even once, it means suits differ in hand
+            if (cardSuit != currentCard.getCardSuit()) {
+                areCardsOfTheSameSuit = false;
+            }
+            previousCard = currentCard;
         }
         
         /*
@@ -66,24 +76,25 @@ public class PokerHands {
         and rankedCards are not setup for 5 cards combinations
         The same thing happens later on with 5 card combos, such as Flush, Straight and Full House.
         */
-        int smallestCardValue = cardsTreeSet.first().getCardValue();
-        int highestCardValue = cardsTreeSet.last().getCardValue();
+        int smallestCardValue = playerCardDeckTreeSet.first().getCardValue();
+        int highestCardValue = playerCardDeckTreeSet.last().getCardValue();
         if (smallestCardValue == 10 && highestCardValue == 14 && areCardsOfTheSameSuit) {
-            return new RankedPlayerHand<>(10, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand(10, playerCardDeck.getDeckOfCards(), null);
         }
 
         /*
         Checks whether all cards have consecutive values
+        RankedCards.size() is needed to check whether program found any pairs
         */
         if (rankedCards.size() == 0) {
-            areCardsOfConsecutiveValues = smallestCardValue + cardsTreeSet.size() - 1 == highestCardValue;
+            areCardsOfConsecutiveValues = smallestCardValue + playerCardDeckTreeSet.size() - 1 == highestCardValue;
         }
 
         /*
         Checks if it's a Straight Flush
         */
         if (areCardsOfTheSameSuit && areCardsOfConsecutiveValues) {
-            return new RankedPlayerHand<>(9, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand(9, playerCardDeck.getDeckOfCards(), null);
         }
 
         /*
@@ -94,7 +105,7 @@ public class PokerHands {
         so comparing should never start with unrankedCard set.
          */
         if (cardValueWithAmountOfAppearances.containsValue(4)) {
-            return new RankedPlayerHand<>(8, rankedCards, new TreeSet<>());
+            return new RankedPlayerHand(8, rankedCards, null);
         }
 
         /*
@@ -103,21 +114,21 @@ public class PokerHands {
         In a case its only 2 reappearing values with a size of 2, it's Two pairs.
          */
         if (cardValueWithAmountOfAppearances.size() == 2 && cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerHand<>(7, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand(7, playerCardDeck.getDeckOfCards(), null);
 
         }
         /*
         Checks if it's a Flush
         */
         if (areCardsOfTheSameSuit) {
-            return new RankedPlayerHand<>(6, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand(6, playerCardDeck.getDeckOfCards(), null);
 
         }
         /*
         Checks if it's a Straight
         */
         if (areCardsOfConsecutiveValues) {
-            return new RankedPlayerHand<>(5, playerCardDeck.getDeckOfCards(), new TreeSet<>());
+            return new RankedPlayerHand(5, playerCardDeck.getDeckOfCards(), null);
 
         }
         /*
@@ -126,26 +137,26 @@ public class PokerHands {
         so comparator should never start comparing unrankedCards set.
         */
         if (cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerHand<>(4, rankedCards, new TreeSet<>());
+            return new RankedPlayerHand(4, rankedCards, null);
 
         }
         /*
         Checks if it's Two Pairs
         */
         if (cardValueWithAmountOfAppearances.size() == 2) {
-            return new RankedPlayerHand<>(3, rankedCards, unrankedCards);
+            return new RankedPlayerHand(3, rankedCards, unrankedCards);
         }
         /*
         Checks if it's One Pair
         */
         if (cardValueWithAmountOfAppearances.size() != 0) {
-            return new RankedPlayerHand<>(2, rankedCards, unrankedCards);
+            return new RankedPlayerHand(2, rankedCards, unrankedCards);
 
         }
         /*
         Returns 1 if it's a High Card
         If it's a High Card, it means all Cards are unranked.
         */
-        return new RankedPlayerHand<>(1, new TreeSet<>(), playerCardDeck.getDeckOfCards());
+        return new RankedPlayerHand(1, null, playerCardDeck.getDeckOfCards());
     }
 }

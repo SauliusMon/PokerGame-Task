@@ -9,9 +9,7 @@ import java.util.TreeSet;
 /*
 This class is used to compare 2 different player hands.
 */
-
-@SuppressWarnings("rawtypes")
-public class RankedPlayerHand<T extends RankedPlayerHand> implements Comparable<T>{
+public class RankedPlayerHand implements Comparable<RankedPlayerHand>{
 
     //Deck ranking - is a hand power ranking from 1 to 10
     private final int deckRanking;
@@ -39,7 +37,7 @@ public class RankedPlayerHand<T extends RankedPlayerHand> implements Comparable<
     }
 
     @Override
-    public int compareTo(T cardDeckObject) {
+    public int compareTo(RankedPlayerHand cardDeckObject) {
         int handRanking = this.getDeckRanking() - cardDeckObject.getDeckRanking();
 
         //If the hands aren't of the same ranking, it returns integer
@@ -57,27 +55,28 @@ public class RankedPlayerHand<T extends RankedPlayerHand> implements Comparable<
     /*
     Using reverse iterator here, because cards are sorted from smallest to highest
     */
-    private int compareCardSets (T cardDeckObject) {
+    private int compareCardSets (RankedPlayerHand cardDeckObject) {
         if (this.getRankedCardsList() != null) {
             Iterator<Card> firstRankedSetIterator = this.getRankedCardsList().descendingIterator();
-            Iterator secondRankedSetIterator = cardDeckObject.getRankedCardsList().descendingIterator();
+            Iterator<Card> secondRankedSetIterator = cardDeckObject.getRankedCardsList().descendingIterator();
             while (firstRankedSetIterator.hasNext()) {
-                int comparedCards = comparable.compare(firstRankedSetIterator.next(), (Card) secondRankedSetIterator.next());
+                int comparedCards = cardValueComparator.compare(firstRankedSetIterator.next(), secondRankedSetIterator.next());
                 if (comparedCards != 0) {
                     return comparedCards > 0 ? 1 : -1;
                 }
             }
         }
-        if (this.getUnrankedCardsList()!= null) {
+        if (this.getUnrankedCardsList() != null) {
             Iterator<Card> firstUnrankedSetIterator = this.getUnrankedCardsList().descendingIterator();
-            Iterator secondUnrankedSetIterator = cardDeckObject.getUnrankedCardsList().descendingIterator();
+            Iterator<Card> secondUnrankedSetIterator = cardDeckObject.getUnrankedCardsList().descendingIterator();
             while (firstUnrankedSetIterator.hasNext()) {
-                int comparedCards = comparable.compare(firstUnrankedSetIterator.next(), (Card) secondUnrankedSetIterator.next());
+                int comparedCards = cardValueComparator.compare(firstUnrankedSetIterator.next(), secondUnrankedSetIterator.next());
                 if (comparedCards != 0) {
                     return comparedCards > 0 ? 1 : -1;
                 }
             }
         }
+        //Chance of a case, where hands would be even after comparisons, is almost non-existent
         return 0;
     }
 
@@ -85,10 +84,5 @@ public class RankedPlayerHand<T extends RankedPlayerHand> implements Comparable<
     This is needed because Cards are being compared by both value and suit.
     In a case where suit does matter in a CardDeck ranking, it could be deleted and card compare method could be used.
     */
-    private final Comparator<Card> comparable = new Comparator<Card>() {
-        @Override
-        public int compare(Card card1, Card card2) {
-            return card1.getCardValue() - card2.getCardValue();
-        }
-    };
+    private final Comparator<Card> cardValueComparator = Comparator.comparingInt(Card::getCardValue);
 }

@@ -1,6 +1,7 @@
 package com.saulius.pokergame.entities;
 
 import com.saulius.pokergame.enums.CardSuit;
+import com.saulius.pokergame.enums.CardValue;
 
 public class Card implements Comparable<Card>{
 
@@ -35,5 +36,30 @@ public class Card implements Comparable<Card>{
         return this.getCardValue() != card.getCardValue() ?
                 this.getCardValue() - card.getCardValue() :
                 this.getCardSuit().ordinal() - card.getCardSuit().ordinal();
+    }
+
+    //Converts 2 passed characters to Card by using Enum values
+    public static Card charToCardConverter (Character cardValueChar, Character cardSuitChar) {
+        int cardValue = 0;
+        CardSuit cardSuit = null;
+
+        if (Character.isDigit(cardValueChar)) {
+            cardValue = cardValueChar - '0';
+        } else {
+            for (CardValue cardSuitEnum : CardValue.values()) {
+                if (cardValueChar.toString().equals(cardSuitEnum.toString())) {
+                    cardValue = cardSuitEnum.getValue();
+                    break;
+                }
+                //Invalid card if code gets here
+            }
+        }
+        for (CardSuit cardSuitEnum : CardSuit.values()) {
+            if (cardSuitChar.toString().equals(cardSuitEnum.toString())) {
+                cardSuit = cardSuitEnum;
+                break;
+            }
+        }
+        return new Card(cardValue, cardSuit);
     }
 }

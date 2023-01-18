@@ -5,7 +5,6 @@ import com.saulius.pokergame.entities.CardDeck;
 import com.saulius.pokergame.entities.PlayerCardDeck;
 import com.saulius.pokergame.enums.CardSuit;
 import com.saulius.pokergame.enums.CardValue;
-import com.saulius.pokergame.games.PlayPoker;
 import com.saulius.pokergame.hands.PokerHands;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -93,52 +92,52 @@ public class PokerGameTest {
     @Test
     public void testingPokerHandsComparator() {
         String royalFlushToCompare = "TH JH QH KH AH AD JD TD KD QD";
-        List<PlayerCardDeck> royalFlushCardDecks = new PlayPoker().stringToCardDecks(royalFlushToCompare, 10, 2);
+        List<PlayerCardDeck> royalFlushCardDecks = PlayerCardDeck.stringToCardDecks(royalFlushToCompare, 10, 2);
         Assertions.assertEquals(0, PokerHands.lookForHandInCardDeck(royalFlushCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(royalFlushCardDecks.get(0))), "Comparator is wrong at Royal Flush hand.");
 
         String straightFlushToCompare = "8C QC JC 9C TC 3S 5S 2S 4S 6S";
-        List<PlayerCardDeck> straightFlushCardDecks = new PlayPoker().stringToCardDecks(straightFlushToCompare, 10, 2);
+        List<PlayerCardDeck> straightFlushCardDecks = PlayerCardDeck.stringToCardDecks(straightFlushToCompare, 10, 2);
         Assertions.assertEquals(1, PokerHands.lookForHandInCardDeck(straightFlushCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(straightFlushCardDecks.get(1))), "Comparator is wrong at Straight Flush hand.");
 
         String fourOfAKindToCompare = "AC AH 2C AS AD 4S 4H 4C 4D JS";
-        List<PlayerCardDeck> fourOfAKindCardDecks = new PlayPoker().stringToCardDecks(fourOfAKindToCompare, 10, 2);
+        List<PlayerCardDeck> fourOfAKindCardDecks = PlayerCardDeck.stringToCardDecks(fourOfAKindToCompare, 10, 2);
         Assertions.assertEquals(1, PokerHands.lookForHandInCardDeck(fourOfAKindCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(fourOfAKindCardDecks.get(1))), "Comparator is wrong at Four of a Kind hand.");
 
         String fullHouseToCompare = "7D 7C AH AD AC TD JH JD TC JS";
-        List<PlayerCardDeck> fullHouseCardDecks = new PlayPoker().stringToCardDecks(fullHouseToCompare, 10, 2);
+        List<PlayerCardDeck> fullHouseCardDecks = PlayerCardDeck.stringToCardDecks(fullHouseToCompare, 10, 2);
         Assertions.assertEquals(1, PokerHands.lookForHandInCardDeck(fullHouseCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(fullHouseCardDecks.get(1))), "Comparator is wrong at Full house hand.");
 
         String flushToCompare = "AD 5D TD KD QD TC 5C 3C 6C KC";
-        List<PlayerCardDeck> flushCardDecks = new PlayPoker().stringToCardDecks(flushToCompare, 10, 2);
+        List<PlayerCardDeck> flushCardDecks = PlayerCardDeck.stringToCardDecks(flushToCompare, 10, 2);
         Assertions.assertEquals(1, PokerHands.lookForHandInCardDeck(flushCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(flushCardDecks.get(1))), "Comparator is wrong at Flush hand");
 
         String straightToCompare = "3S 5D 2S 4S 6S TC JD QH KC AC";
-        List<PlayerCardDeck> straightCardDecks = new PlayPoker().stringToCardDecks(straightToCompare, 10, 2);
+        List<PlayerCardDeck> straightCardDecks = PlayerCardDeck.stringToCardDecks(straightToCompare, 10, 2);
         Assertions.assertEquals(-1, PokerHands.lookForHandInCardDeck(straightCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(straightCardDecks.get(1))), "Comparator is wrong at Straight hand");
 
         String threeOfAKindToCompare = "4C 2D 4D 4H 3C 7D JD JC JH 6D";
-        List<PlayerCardDeck> threeOfAKindCardDecks = new PlayPoker().stringToCardDecks(threeOfAKindToCompare, 10, 2);
+        List<PlayerCardDeck> threeOfAKindCardDecks = PlayerCardDeck.stringToCardDecks(threeOfAKindToCompare, 10, 2);
         Assertions.assertEquals(-1, PokerHands.lookForHandInCardDeck(threeOfAKindCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(threeOfAKindCardDecks.get(1))), "Comparator is wrong at Three of a Kind hand");
 
         String twoPairsToCompare = "6S 7S JD JS 6C AS AC KH 2S 2D";
-        List<PlayerCardDeck> twoPairsCardDecks = new PlayPoker().stringToCardDecks(twoPairsToCompare, 10, 2);
+        List<PlayerCardDeck> twoPairsCardDecks = PlayerCardDeck.stringToCardDecks(twoPairsToCompare, 10, 2);
         Assertions.assertEquals(-1, PokerHands.lookForHandInCardDeck(twoPairsCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(twoPairsCardDecks.get(1))), "Comparator is wrong at Two Pairs hand");
 
         String onePairToCompare = "QD QH 5D 4D 2C 6H 2D KH 7C KS";
-        List<PlayerCardDeck> onePairCardDecks = new PlayPoker().stringToCardDecks(onePairToCompare, 10, 2);
+        List<PlayerCardDeck> onePairCardDecks = PlayerCardDeck.stringToCardDecks(onePairToCompare, 10, 2);
         Assertions.assertEquals(-1, PokerHands.lookForHandInCardDeck(onePairCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(onePairCardDecks.get(1))), "Comparator is wrong at One Pair hand");
 
         String highCardToCompare = "4H 3C 7H 6C JS KC AS TD 5H 6H";
-        List<PlayerCardDeck> highCardCardDecks = new PlayPoker().stringToCardDecks(highCardToCompare, 10, 2);
+        List<PlayerCardDeck> highCardCardDecks = PlayerCardDeck.stringToCardDecks(highCardToCompare, 10, 2);
         Assertions.assertEquals(-1, PokerHands.lookForHandInCardDeck(highCardCardDecks.get(0)).compareTo(
                 PokerHands.lookForHandInCardDeck(highCardCardDecks.get(1))), "Comparator is wrong at High Card hand");
     }
