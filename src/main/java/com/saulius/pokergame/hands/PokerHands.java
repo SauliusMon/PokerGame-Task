@@ -19,10 +19,8 @@ public class PokerHands {
         /*
         Finds every single pair, three of a kind, four of a kind and whether cards are of the same suit.
         For performance’s sake it happens at the same time: this way CardDeck needs to be iterated through only once.
-        Because of a low chance for CardDeck to have the highest tier hand, making those calculations earlier shouldn't diminish performance.
 
-        Because the List is sorted in ascending order, in a case there is a pair in CardDeck, the latter should be neighbors.
-        E.g, if there is a pair of 10 and one or a pair of 11, 10s will be neighbors and go before 11.
+        Because of sorting, if there is a pair of 10 and a pair of 11, 10s will be neighbors and go before 11.
 
         If first card and second card values are even, they are put into HashMap, or the amount of appearance times for that specific value is increased by one.
         */
@@ -37,7 +35,7 @@ public class PokerHands {
         CardSuit cardSuit = previousCard.getCardSuit();
 
         //This is needed so that the first card (previousCard) would be added into ranked or unranked cards TreeSet
-        boolean isFirstIteration = true;
+        boolean previousCardRanked = false;
 
         while (playerCardDeckIterator.hasNext()) {
             Card currentCard = playerCardDeckIterator.next();
@@ -48,20 +46,24 @@ public class PokerHands {
                 } else {
                     cardValueWithAmountOfAppearances.put(valueOfPair, 2);
                 }
-                //Because it appears more than once, adding it to ranked cards set
-                if (isFirstIteration) {
-                    rankedCards.add(previousCard);
-                    isFirstIteration = false;
-                }
+                /*
+                Adding both matching cards to a ranked set
+                In a 3 of a kind or 4 of a kind cases previous card wouldn't be added because of a TreeSet characteristics
+                */
                 rankedCards.add(currentCard);
+                rankedCards.add(previousCard);
+                previousCardRanked = true;
             }
             else {
-                //If it doesn't reappear, it means it's unranked or all cards are ranked (Flush, Straight)
-                if (isFirstIteration) {
-                    unrankedCards.add(previousCard);
-                    isFirstIteration = false;
+                //In a case where this card is the last one, adding it to an unranked set
+                if (!playerCardDeckIterator.hasNext()) {
+                    unrankedCards.add(currentCard);
                 }
-                unrankedCards.add(currentCard);
+                //If a previousCard was unranked, it should add it to an unranked set
+                if (!previousCardRanked) {
+                    unrankedCards.add(previousCard);
+                }
+                previousCardRanked = false;
             }
             //Checking if hand has the same suits. If cardSuits are not even once, it means suits differ in hand
             if (cardSuit != currentCard.getCardSuit()) {
@@ -72,8 +74,8 @@ public class PokerHands {
         
         /*
         Checks if it's a Royal Flush
-        Returns whole deck to rankedCards instead of rankedCards because all 5 cards are used in combination
-        and rankedCards are not setup for 5 cards combinations
+        Returns the whole deck to rankedCards instead of rankedCards because all 5 cards are used in combination
+        and rankedCards are used for pair combinations
         The same thing happens later on with 5 card combos, such as Flush, Straight and Full House.
         */
         int smallestCardValue = playerCardDeckTreeSet.first().getCardValue();

@@ -25,7 +25,7 @@ public class PlayerCardDeck extends CardDeck {
     //Converts line of cards to a CardDeck
     public static List<PlayerCardDeck> stringToCardDecks (String cardsString, int amountOfCardsInARow, int amountOfPlayers) {
 
-        List<PlayerCardDeck> playersCardDecksList = new ArrayList<>(amountOfPlayers);
+        List<PlayerCardDeck> playersCardDeckList = new ArrayList<>(amountOfPlayers);
         Queue<PlayerCardDeck> playersCardDeckQueue = new ArrayDeque<>(amountOfPlayers);
 
         String[] individualCards = cardsString.split(" ", amountOfCardsInARow);
@@ -42,16 +42,16 @@ public class PlayerCardDeck extends CardDeck {
             if (cardDeckOfPlayer.canAddCard()) {
                 cardDeckOfPlayer.addCard(card);
             } else {
-                playersCardDecksList.add(cardDeckOfPlayer);
+                playersCardDeckList.add(cardDeckOfPlayer);
                 cardDeckOfPlayer = playersCardDeckQueue.remove();
-                //In case maximum CardDeck size is 0
+                //Checking in a case where maximum CardDeck size is 0
                 if (cardDeckOfPlayer.canAddCard()) {
                     cardDeckOfPlayer.addCard(card);
                 }
             }
         }
-        playersCardDecksList.add(cardDeckOfPlayer);
+        playersCardDeckList.add(cardDeckOfPlayer);
 
-        return playersCardDecksList;
+        return playersCardDeckList;
     }
 }
