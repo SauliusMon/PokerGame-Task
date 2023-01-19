@@ -51,7 +51,7 @@ public class Card implements Comparable<Card>{
                     cardValue = cardSuitEnum.getValue();
                     break;
                 }
-                //Invalid card if code gets here
+                //Invalid card if program gets here
             }
         }
         for (CardSuit cardSuitEnum : CardSuit.values()) {

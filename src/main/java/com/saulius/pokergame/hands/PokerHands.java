@@ -34,7 +34,10 @@ public class PokerHands {
         Card previousCard = playerCardDeckIterator.next();
         CardSuit cardSuit = previousCard.getCardSuit();
 
-        //This is needed so that the first card (previousCard) would be added into ranked or unranked cards TreeSet
+        /*
+        This is needed so that the unranked card would be added into unranked cards TreeSet
+        in a case, where that card differs in cardValue from previous and next card in a hand
+        */
         boolean previousCardRanked = false;
 
         while (playerCardDeckIterator.hasNext()) {
@@ -81,7 +84,7 @@ public class PokerHands {
         int smallestCardValue = playerCardDeckTreeSet.first().getCardValue();
         int highestCardValue = playerCardDeckTreeSet.last().getCardValue();
         if (smallestCardValue == 10 && highestCardValue == 14 && areCardsOfTheSameSuit) {
-            return new RankedPlayerHand(10, playerCardDeck.getDeckOfCards(), null);
+            return new RankedPlayerHand(10, playerCardDeckTreeSet, null);
         }
 
         /*
@@ -96,15 +99,15 @@ public class PokerHands {
         Checks if it's a Straight Flush
         */
         if (areCardsOfTheSameSuit && areCardsOfConsecutiveValues) {
-            return new RankedPlayerHand(9, playerCardDeck.getDeckOfCards(), null);
+            return new RankedPlayerHand(9, playerCardDeckTreeSet, null);
         }
 
         /*
         Checks if it's a Four of a Kind
         Same value reappears 4 times in a CardDeck
-        In this case there is no point to know the value of last card.
+        In this case there is no point to know the value of the last card.
         Reason being, four of a kind can't be of the same value for both players,
-        so comparing should never start with unrankedCard set.
+        so comparing should never start with an unrankedCard set.
          */
         if (cardValueWithAmountOfAppearances.containsValue(4)) {
             return new RankedPlayerHand(8, rankedCards, null);
@@ -116,27 +119,27 @@ public class PokerHands {
         In a case its only 2 reappearing values with a size of 2, it's Two pairs.
          */
         if (cardValueWithAmountOfAppearances.size() == 2 && cardValueWithAmountOfAppearances.containsValue(3)) {
-            return new RankedPlayerHand(7, playerCardDeck.getDeckOfCards(), null);
+            return new RankedPlayerHand(7, rankedCards, null);
 
         }
         /*
         Checks if it's a Flush
         */
         if (areCardsOfTheSameSuit) {
-            return new RankedPlayerHand(6, playerCardDeck.getDeckOfCards(), null);
+            return new RankedPlayerHand(6, playerCardDeckTreeSet, null);
 
         }
         /*
         Checks if it's a Straight
         */
         if (areCardsOfConsecutiveValues) {
-            return new RankedPlayerHand(5, playerCardDeck.getDeckOfCards(), null);
+            return new RankedPlayerHand(5, playerCardDeckTreeSet, null);
 
         }
         /*
         Checks if it's a Three of a Kind
-        For Three of a kind to have same value in both player hands, there should be 6 of the same value unique cards, when currently there is 4,
-        so comparator should never start comparing unrankedCards set.
+        Three of a kind can't be of the same value for both players,
+        so comparing should never start with an unrankedCard set.
         */
         if (cardValueWithAmountOfAppearances.containsValue(3)) {
             return new RankedPlayerHand(4, rankedCards, null);
@@ -159,6 +162,6 @@ public class PokerHands {
         Returns 1 if it's a High Card
         If it's a High Card, it means all Cards are unranked.
         */
-        return new RankedPlayerHand(1, null, playerCardDeck.getDeckOfCards());
+        return new RankedPlayerHand(1, null, unrankedCards);
     }
 }

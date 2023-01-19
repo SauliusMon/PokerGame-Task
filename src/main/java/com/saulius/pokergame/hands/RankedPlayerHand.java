@@ -15,7 +15,7 @@ public class RankedPlayerHand implements Comparable<RankedPlayerHand>{
     private final int deckRanking;
     //Ranked cards - are cards which were ranked while assigning deck ranking value
     private final TreeSet<Card> rankedCardsList;
-    //Unranked cards - are cards which weren't used in hand power ranking and didn't affect deck ranking
+    //Unranked cards - are cards which weren't used in a hand power ranking and didn't affect deck ranking
     private final TreeSet<Card> unrankedCardsList;
 
     public RankedPlayerHand(int deckRanking, TreeSet<Card> rankedCardsList, TreeSet<Card> unrankedCardsList) {

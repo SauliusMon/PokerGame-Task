@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class PlayPoker {
 
     /*
-    If there would be more than 2 players, usage of some kind of Collection<Integer> could be used.
+    If there would be more than 2 players, Collection<Integer> could be used.
     */
     private int pointsForPlayer1;
     private int pointsForPlayer2;
