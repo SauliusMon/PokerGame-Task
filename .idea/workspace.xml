@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/entities/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/games/PlayPoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/PokerHands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/RankedPlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saulius/pokergame/hands/RankedPlayerHand.java" afterDir="false" />
-    </list>
+    <list default="true" id="3928089f-e04f-4f34-9f50-753ed64d381b" name="Changes" comment="Init commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,22 +59,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/IT/Documents/GitHub/Poker Game Task/PokerGame/build.gradle&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Sauls/Desktop/Projects/Java/PokerGame-Task/build.gradle",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.saulius.poker_game" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.com.saulius.pokergame.CardDeckTest and 5 more (2)">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.saulius.pokergame.Main" />
       <module name="PokerGame.main" />
@@ -115,9 +109,10 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="PokerGameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="com.saulius.pokergame.CardDeckTest and 5 more (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -129,8 +124,12 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.saulius.poker_game.PokerGameTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CharacterToCardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PlayerCardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PokerHandsComparatorTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.ValueSuitTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -138,18 +137,79 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="com.saulius.pokergame.CardDeckTest and 5 more (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests &quot;com.saulius.pokergame.CardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CharacterToCardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PlayerCardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PokerHandsComparatorTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.ValueSuitTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="com.saulius.pokergame.CardDeckTest and 5 more" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests &quot;com.saulius.pokergame.CardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.CharacterToCardTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PlayerCardDeckTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.PokerHandsComparatorTest&quot;" />
+            <option value="--tests &quot;com.saulius.pokergame.ValueSuitTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.PokerGameTest" />
+      <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more" />
+      <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more (1)" />
+      <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more (2)" />
       <item itemvalue="Gradle.PokerGameTest (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more (2)" />
+        <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more (1)" />
+        <item itemvalue="Gradle.com.saulius.pokergame.CardDeckTest and 5 more" />
         <item itemvalue="Gradle.PokerGameTest (1)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.PokerGameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -194,5 +254,8 @@
         <watch expression="rankedCards" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PokerGame$com_saulius_pokergame_CardDeckTest_and_5_more__2_.ic" NAME="com.saulius.pokergame.CardDeckTest and 5 more (2) Coverage Results" MODIFIED="1685501647343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
